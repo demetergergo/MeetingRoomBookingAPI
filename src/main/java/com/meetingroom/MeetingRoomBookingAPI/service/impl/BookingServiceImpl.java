@@ -48,6 +48,7 @@ public class BookingServiceImpl implements BookingService {
 
         Booking booking = BookingMapper.mapToBooking(createBookingDto, MeetingRoomMapper.mapToMeetingRoom(meetingRoomDto));
         bookingRepository.save(booking);
+
         Booking savedBooking = bookingRepository.findById(booking.getId())
                 .orElseThrow(() -> new RuntimeException("Booking could not be saved"));
 

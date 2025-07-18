@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public interface MeetingRoomService {
     List<MeetingRoomDto> findAllMeetingRooms();
-    MeetingRoomDto findMeetingRoomById(UUID id);
+    MeetingRoomDto findMeetingRoomByName(String name);
     MeetingRoomDto createMeetingRoom(CreateMeetingRoomDto createMeetingRoomDto);
 }
 
