@@ -35,6 +35,11 @@ public class MeetingRoomServiceImpl implements MeetingRoomService {
 
     @Override
     public MeetingRoomDto createMeetingRoom(CreateMeetingRoomDto createMeetingRoomDto) {
+        // Check for unique name
+        MeetingRoom existing = meetingRoomRepository.findMeetingRoomByName(createMeetingRoomDto.getName());
+        if (existing != null) {
+            throw new IllegalArgumentException("Meeting room name must be unique.");
+        }
         MeetingRoom meetingRoom = MeetingRoomMapper.mapToMeetingRoom(createMeetingRoomDto);
         meetingRoomRepository.save(meetingRoom);
 
