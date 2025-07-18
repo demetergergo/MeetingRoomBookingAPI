@@ -12,7 +12,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/bookings")
@@ -27,8 +29,9 @@ public class BookingController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<BookingDto> getAllBookings() {
-        return bookingService.findAllBookings();
+    public Map<String, List<BookingDto>> getAllBookingsGroupedByRoom() {
+        List<BookingDto> allBookings = bookingService.findAllBookings();
+        return allBookings.stream().collect(Collectors.groupingBy(booking -> booking.getMeetingRoom().getName()));
     }
 
     @GetMapping("/room/{roomName}")
