@@ -20,5 +20,14 @@ public class BookingMapper {
                 MeetingRoomMapper.mapToMeetingRoom(bookingDto.getMeetingRoom())
         );
     }
+
+    public static Booking mapToBooking(CreateBookingDto createBookingDto, MeetingRoom meetingRoom) {
+        Booking booking = new Booking();
+        booking.setMeetingRoom(meetingRoom);
+        booking.setStartTime(createBookingDto.getStart());
+        booking.setEndTime(createBookingDto.getEnd());
+
+        return booking;
+    }
 }
 

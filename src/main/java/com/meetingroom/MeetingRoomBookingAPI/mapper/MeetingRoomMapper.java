@@ -16,5 +16,11 @@ public class MeetingRoomMapper {
                 meetingRoomDto.getName()
         );
     }
+
+    public static MeetingRoom mapToMeetingRoom(CreateMeetingRoomDto createMeetingRoomDto) {
+        MeetingRoom meetingRoom = new MeetingRoom();
+        meetingRoom.setName(createMeetingRoomDto.getName());
+        return meetingRoom;
+    }
 }
 
