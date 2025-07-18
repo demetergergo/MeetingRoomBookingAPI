@@ -21,8 +21,4 @@ The application will be available at http://localhost:8080
 ## Swagger
 
 To use the Swagger UI for API testing and documentation:
-
-1. Make sure the project includes the `springdoc-openapi-ui` dependency in `pom.xml`.
-2. After starting the application, open [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html) in your browser.
-
-You can explore and test all endpoints from the Swagger UI.
+After starting the application, open [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html) in your browser.
